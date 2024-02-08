@@ -1,0 +1,144 @@
+/* IMPORTA UMA FONTE */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* RESET (REDEFININDO O CSS) */
+*, :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #0F172A;
+}
+
+main {
+    max-width: 640px;
+    margin: 0 auto 64px;
+    padding: 20px;
+}
+
+header {
+    margin-top: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    font-size: 30px;
+    color: #f1f5f9;
+    margin-top: 24px;
+    text-align: center;
+}
+
+#quiz {
+    /* counter-reset vai contar quantos elementos tem ali */
+    counter-reset: quiz-item; /*pode ser o nome que você quiser, coloquei quiz-item porque faz sentido */
+
+}
+
+.quiz-item {
+    margin-top: 24px;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.quiz-item h3 {
+    padding: 16px 20px;
+    color: #E2E8F0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #1E293B;
+}
+
+.quiz-item  h3::before{
+    counter-increment: quiz-item;  /*vai incrementar a cada item*/
+    content: counter(quiz-item);   /*vai mostrar o valor da contagem de items*/
+    background-color: #475569;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /*para não ter encurtamento, para não se apertar ali*/
+
+   
+}
+
+.quiz-item dl {
+    padding: 20px 24px;
+    display: grid;
+    gap:  8px;
+}
+
+.quiz-item dl dt {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #E2E8F0;
+}
+
+input {
+    /* all - todas as propriedades que existe nesse input e unset(tiro todas as atribuções) */
+    all: unset;
+    display: inline-block;
+    border: 1px solid #94A3B8;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+input:checked {
+    border: 1px solid #A3E635;
+    /* background-color: #334155; */
+}
+
+/* Cria um elemento filho do input */
+input:checked::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #A3E635;
+    border-radius: 50%;
+}
+
+
+
+#acertos {
+    text-align: center;
+    background-color: #A3E635;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 12px;
+}
+
